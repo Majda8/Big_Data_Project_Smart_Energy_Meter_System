@@ -3,8 +3,8 @@
 This project implements a smart energy meter system, using various big data tools and machine learning models. The system collects energy consumption data through an **ESP32** (programmed with **Arduino IDE**) and stores it temporarily in **Flask**. The data is then processed through **Kafka**, **Spark**, **Dask**, and stored in **MongoDB** for further analysis. Finally, **Grafana** is used for visualizing the energy consumption trends.
 
 ### ESP32 Hardware Setup
-![ESP32 Setup](esp32.jpg =300x200)
 
+<img src="esp32.jpg" width="300"/>
 
 ## Project Architecture
 
