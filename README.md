@@ -113,11 +113,4 @@ Voici la partie demandée ajoutée avec les instructions pour le **setup et l'ex
     docker exec -it spark-master /opt/bitnami/spark/bin/spark-submit --packages org.apache.spark:spark-sql-kafka-0-10_2.12:3.3.0 /app/Spark_ML_reader.py
     ```
 
-
-
----
-
-Cela décrit comment cloner, configurer, exécuter les conteneurs Docker, uploader le programme ESP32 et utiliser les commandes Spark via Docker.
-
-
 This project integrates IoT devices, big data processing, machine learning, and real-time visualization to create a smart energy meter system. The system is scalable and can efficiently process large datasets, providing insights into energy consumption patterns.
