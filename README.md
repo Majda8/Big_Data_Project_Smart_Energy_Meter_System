@@ -3,7 +3,7 @@
 This project implements a smart energy meter system, using various big data tools and machine learning models. The system collects energy consumption data through an **ESP32** (programmed with **Arduino IDE**) and stores it temporarily in **Flask**. The data is then processed through **Kafka**, **Spark**, **Dask**, and stored in **MongoDB** for further analysis. Finally, **Grafana** is used for visualizing the energy consumption trends.
 
 ### ESP32 Hardware Setup
-![ESP32 Setup](esp32.jpg)
+![ESP32 Setup](esp32.jpg =300x200)
 
 
 ## Project Architecture
@@ -39,14 +39,6 @@ Big_Data_Project_Smart_Energy_Meter_System/
 └── README.md                      # Project documentation
 ```
 
-## Features
-
-- **ESP32 Integration**: An IoT device (ESP32) collects energy consumption data and sends it to Flask for temporary storage.
-- **Kafka**: Data is streamed from Flask to Kafka, allowing real-time data processing.
-- **Big Data Processing**: **Spark**, **Dask**, and **MongoDB** handle large-scale data processing and storage.
-- **Data Visualization**: **Grafana** visualizes energy consumption trends in real-time.
-- **Machine Learning**: **KMeans** clustering and **XGBoost** models for energy data prediction.
-
 ## Setup and Run
 
 1. **Clone the repository**:
@@ -71,7 +63,61 @@ Big_Data_Project_Smart_Energy_Meter_System/
 3. **Upload the ESP32 Program**:
 
     Upload the **ESP32 program** from `esp32 program.ino` to your ESP32 device using the Arduino IDE. This collects energy data and sends it to Flask.
+Voici la partie demandée ajoutée avec les instructions pour le **setup et l'exécution** des scripts :
 
+---
+
+## Setup and Run
+
+1. **Clone the repository**:
+
+    ```bash
+    git clone https://github.com/Majda8/Big_Data_Project_Smart_Energy_Meter_System.git
+      ```
+    
+    ```bash
+    cd Big_Data_Project_Smart_Energy_Meter_System
+    ```
+
+2. **Run the system**:
+
+    The system can be started using Docker. Run the following command:
+
+    ```bash
+    docker-compose up -d
+    ```
+
+3. **Upload the ESP32 Program**:
+
+    Upload the **ESP32 program** from `esp32 program.ino` to your ESP32 device using the **Arduino IDE**. This collects energy data and sends it to Flask.
+   
+5. **Running other Python scripts**:
+
+    For the other Python scripts (like `Dask.py`, `producer.py`, and `consumer_snowflake.py`), you can simply run them directly:
+
+    ```bash
+    python Dask.py
+    python producer.py
+    python consumer_snowflake.py
+    ```
+
+5. **Run the Spark scripts**:
+
+    For the Spark scripts, use the following Docker commands to run the consumer and reader scripts:
+
+    ```bash
+    docker exec -it spark-master /opt/bitnami/spark/bin/spark-submit --packages org.apache.spark:spark-sql-kafka-0-10_2.12:3.3.0 /app/Spark_ML_consumer.py
+    ```
+
+    ```bash
+    docker exec -it spark-master /opt/bitnami/spark/bin/spark-submit --packages org.apache.spark:spark-sql-kafka-0-10_2.12:3.3.0 /app/Spark_ML_reader.py
+    ```
+
+
+
+---
+
+Cela décrit comment cloner, configurer, exécuter les conteneurs Docker, uploader le programme ESP32 et utiliser les commandes Spark via Docker.
 
 
 This project integrates IoT devices, big data processing, machine learning, and real-time visualization to create a smart energy meter system. The system is scalable and can efficiently process large datasets, providing insights into energy consumption patterns.
